@@ -1,0 +1,25 @@
+.section--hero {
+    @include backgroundProperties();
+    min-height: 30em;
+    display: flex;
+    @include tablet {
+      min-height: 40em;
+    }
+    .section__wrapper {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      text-align: center;
+      @include tablet {
+        width: 100%;
+        text-align: left;
+      }
+      .button__wrapper {
+        padding: 1em 0;
+        display: flex;
+        @include tablet {
+          width: 15em;
+        }
+      }
+    }
+  }

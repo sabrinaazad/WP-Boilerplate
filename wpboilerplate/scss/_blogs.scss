@@ -1,0 +1,186 @@
+/************************************************************************/
+/***************************** BLOG STYLES ******************************/
+/************************************************************************/
+
+.main--archive {
+  max-width: 1180px;
+  margin: 0 auto;
+  .section--aside {
+    display: none;
+    .wp-block-archives-list,
+    .wp-block-categories-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+  }
+  #nav-posts {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
+    padding-top: 1em;
+    width: 100%;
+    .next {
+      text-align: right;
+    }
+  }
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    .section--archive {
+      flex-basis: 75%;
+    }
+    .section--aside {
+      display: block;
+      flex-basis: 25%;
+    }
+  }
+  .post-grid {
+    display: flex;
+    flex-wrap: wrap;
+    .post {
+      display: flex;
+      flex-wrap: wrap;
+      margin: 0.5em;
+      background-color: $white;
+      @include dropShadow();
+      @include borderRadius();
+      @include tablet {
+        flex-wrap: nowrap;
+      }
+      .image__wrapper {
+        padding: 10.25em;
+        border-top-left-radius: 1em;
+        border-top-right-radius: 1em;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        text-align: center;
+        flex-basis: 100%;
+        @include tablet {
+          padding: 8em;
+          flex-basis: 30%;
+          border-top-right-radius: 0;
+          border-bottom-left-radius: 1em;
+        }
+      }
+      .content {
+        padding: 1em;
+        @include tablet {
+          flex-basis: 70%;
+        }
+        .title {
+          font-size: 1.25em;
+          min-height: 2.5em;
+        }
+        .category {
+          font-style: italic;
+        }
+        .date {
+          font-size: 0.75em;
+          padding-top: 1em;
+        }
+        .category {
+          .post-categories {
+            padding-left: 0;
+            margin: 0;
+            list-style-type: none;
+            display: flex;
+            li {
+              margin-right: 0.25em;
+              font-size: 0.8em;
+              &::after {
+                content: ", ";
+              }
+      
+              &:last-child {
+                &::after {
+                    content: none;
+                }
+              }
+            }
+          }
+        }
+        p {
+          font-size: 0.8em;
+        }
+        .btn {
+          display: inline-block;
+        }
+      }
+    }
+  }
+}
+
+.main--single {
+  max-width: 1180px;
+  margin: 0 auto;
+  .section--aside {
+    display: none;
+    .wp-block-archives-list,
+    .wp-block-categories-list {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    @include desktop {
+      display: block;
+    }
+  }
+  .date,
+  .category {
+    margin: 1em 0;
+    display: flex;
+  }
+  .post-categories {
+    padding-left: 0;
+    margin: 0;
+    list-style-type: none;
+    margin-left: 0.25em;
+    display: flex;
+
+    li {
+        margin-right: 0.25em;
+
+        &::after {
+            content: ", ";
+        }
+
+        &:last-child {
+            &::after {
+                content: none;
+            }
+        }
+    }
+}
+  @include desktop {
+    display: flex;
+    justify-content: space-between;
+    .section--single {
+      flex-basis: 72%;
+    }
+    .section--aside {
+      flex-basis: 25%;
+    }
+  }
+  #nav-posts {
+    display: flex;
+    justify-content: space-between;
+    margin: 2em 0;
+    padding-top: 1em;
+    width: 100%;
+    .next {
+      text-align: left;
+      flex-basis: 40%;
+    }
+    .prev {
+      text-align: right;
+      flex-basis: 40%;
+    }
+  }
+
+  .image__wrapper {
+    @include tablet {
+      max-width: 30em;
+      margin: 1em auto;
+    }
+  }
+}

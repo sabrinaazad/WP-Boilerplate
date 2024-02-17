@@ -1,0 +1,13 @@
+.section--banner-cta {
+    text-align: center;
+    .section__wrapper {
+      max-width: 50rem;
+      .button__wrapper {
+        padding: 1rem 0;
+        margin: 1rem auto;
+        @include tablet {
+          width: 15rem;
+        }
+      }
+    }
+  }

@@ -1,0 +1,22 @@
+/*
+Theme Name: WP Boilerplate Theme
+Text Domain: https://www.{sitename}.com
+Author: Sabrina Matthews at Digital Yalo
+Author URI: https://www.digitalyalo.com
+Version: 1.0.0
+*/
+//---------------------SASS SECTION------------------------//
+
+@import 'variables';
+@import 'media-queries';
+@import 'fonts';
+@import 'global';
+@import 'header';
+@import 'footer';
+@import 'blogs';
+
+@import './modules/banner-cta';
+@import './modules/featured-blogs';
+@import './modules/hero';
+@import './modules/side-by-side';
+@import './modules/text-editor';

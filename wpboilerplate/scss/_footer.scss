@@ -1,0 +1,76 @@
+/************************************************************************/
+/**************************** FOOTER STYLES *****************************/
+/************************************************************************/
+
+.footer {
+    background-color: $primary;
+    text-align: center;
+    .logo__wrapper {
+        margin: 0 auto;
+        img {
+            max-width: 7.5rem;
+        }
+    }
+    .icons__wrapper {
+        margin: 2rem 0;
+        .icon {
+            margin: 0 0.25rem;
+            img {
+                width: 2rem;
+                height: 2rem;
+                @include transitionAll();
+                &:hover {
+                    transform: scale(1.1);
+                }
+            }
+        }
+    }
+    .nav__drawer {
+        .footer-nav {
+            padding-left: 0;
+            list-style-type: none;
+            text-align: center;
+            li {
+                padding: 1rem 0.5rem;
+                a {
+                    color: $white;
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+                &.btn {
+                    display: inline-flex;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 0;
+                    width: 10rem;
+                    height: 2.5rem;
+                    min-width: 10rem;
+                    @extend .btn--secondary;
+                    &:hover {
+                        a {
+                            opacity: 0.8;
+                        }
+                    }
+                }
+            }
+            @include tablet {
+                flex-basis: 100%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+        }
+    }
+    .info__wrapper {
+        color: $white;
+        text-align: center;
+        font-size: 0.75rem;
+        a {
+            color: $white;
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+}

@@ -1,0 +1,37 @@
+.section--featured-blogs {
+    @include backgroundProperties();
+    text-align: center;
+    .content {
+      max-width: 50rem;
+      margin: auto;
+    }
+    .blogs {
+      @include tablet {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        text-align: center;
+        margin-bottom: 3rem;
+        flex-wrap: wrap;
+      }
+      .blog {
+        background-color: $white;
+        padding: 2rem 1rem;
+        margin: 1rem 0;
+        @include borderRadius();
+        @include tablet {
+          flex-basis: calc(33% - 1rem);
+          padding: 1rem 0.20rem;
+        }
+        .image__wrapper {
+          padding: 5rem;
+          width: 14rem;
+          background-position: center;
+          background-size: cover;
+          background-image: url("./assets/blog-placeholder.jpg");
+          @include borderRadius();
+        }
+      }
+    }
+  }
+  

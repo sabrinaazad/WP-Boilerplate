@@ -1,0 +1,25 @@
+.section--side-by-side {
+    .two-col {
+      display: flex;
+      flex-direction: column;
+      @include tablet {
+        flex-direction: row;
+        .col {
+          flex-basis: 50%;
+        }
+      }
+      .col {
+        &:first-child {
+          .image__wrapper {
+            padding: 1em;
+          }
+        }
+        &:nth-child(2) {
+          .button__wrapper {
+            display: block;
+            margin: 2em 0;
+          }
+        }
+      }
+    }
+  }

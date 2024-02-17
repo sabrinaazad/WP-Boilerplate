@@ -1,0 +1,381 @@
+/************************************************************************/
+/**************************** HEADER STYLES *****************************/
+/************************************************************************/
+
+.nav {
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  z-index: 10;
+  background-color: $white;
+  @include dropShadow();
+
+  .topbar__wrapper {
+    background-color: $primary;
+
+    .topbar {
+      max-width: 1180px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      padding: 0.5rem;
+
+      .left,
+      .right {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .phone {
+        a {
+          color: $white;
+        }
+
+        &:hover {
+          a {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .icons {
+        padding-left: 3rem;
+
+        .icon {
+          margin: 0 0.25rem;
+
+          img {
+            width: 25px;
+            height: 25px;
+            @include transitionAll();
+
+            &:hover {
+              transform: scale(1.1);
+            }
+          }
+        }
+      }
+
+      .nav__drawer {
+        display: flex;
+
+        .top-nav {
+          margin: 0;
+          padding-left: 0;
+          list-style: none;
+          display: flex;
+
+          li {
+            margin: 0 0.5rem;
+
+            a {
+              color: $white;
+            }
+
+            &:hover {
+              a {
+                opacity: 0.8;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .main__wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0.5rem;
+
+    @include tablet {
+      padding: 0;
+    }
+
+    .logo {
+      z-index: 3;
+      width: 7.5rem;
+      padding: 0.5rem;
+    }
+
+    .bar {
+      position: relative;
+      z-index: 3;
+
+      .hamburger-button {
+        width: 4.25rem;
+        height: 3rem;
+        background-color: $transparent;
+        border: none;
+
+        .hamburger-button__bar--top,
+        .hamburger-button__bar--middle,
+        .hamburger-button__bar--bottom {
+          color: $primary;
+          background-color: $primary;
+          width: 3.5rem;
+          height: 0.75rem;
+          border-radius: 1rem;
+          position: absolute;
+          @include transitionAll();
+        }
+
+        .hamburger-button__bar--top {
+          top: 0;
+        }
+
+        .hamburger-button__bar--middle {
+          top: 15px;
+        }
+
+        .hamburger-button__bar--bottom {
+          top: 30px;
+        }
+
+        &.is-open {
+
+          .hamburger-button__bar--top,
+          .hamburger-button__bar--middle,
+          .hamburger-button__bar--bottom {
+            @include transitionAll();
+          }
+
+          .hamburger-button__bar--top {
+            -webkit-transform: rotate(45deg);
+            -moz-transform: rotate(45deg);
+            -o-transform: rotate(45deg);
+            transform: rotate(45deg);
+            top: 15px;
+            left: 8px;
+          }
+
+          .hamburger-button__bar--middle {
+            width: 0%;
+            opacity: 0;
+          }
+
+          .hamburger-button__bar--bottom {
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -o-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+            top: 15px;
+            left: 8px;
+          }
+        }
+      }
+    }
+
+    .nav__drawer {
+      position: absolute;
+      width: 100vw;
+      height: 100vh;
+      top: 95px;
+      right: -100%;
+      z-index: 2;
+      background-color: $white;
+      @include dropShadow();
+      @include transition(right 1s);
+
+      @include tablet {
+        transition: none;
+        position: relative;
+        height: auto;
+        top: 0;
+        right: 0;
+        box-shadow: none;
+      }
+
+      @include regulardesktop {
+        flex-basis: 70%;
+      }
+
+      &.is-open {
+        right: 0;
+      }
+
+      .primary-nav {
+        padding-left: 0;
+        list-style-type: none;
+        overflow: scroll;
+        height: 75vh;
+        margin-top: 2rem;
+        background-color: $white;
+
+        @include tablet {
+          padding: 0;
+          margin: 0;
+          height: auto;
+          display: flex;
+          justify-content: end;
+          align-items: center;
+          text-align: center;
+          overflow: initial;
+        }
+
+        >li {
+          padding: 1rem;
+
+          &.btn {
+            margin: 1rem;
+            padding: 0;
+            min-width: auto;
+            text-align: center;
+            display: block;
+            @extend .btn--secondary;
+            a {
+              font-size: 0.8rem;
+              min-width: auto;
+              padding: 0.75rem 2rem;
+              text-align: center;
+              display: block;
+              color: $white;
+            }
+
+            &.current-menu-item > a,
+            &.current-menu-ancestor > a {
+              border-bottom: none;
+            }
+          }
+
+          a {
+            color:
+            $baseColor;
+            font-size: 0.9rem;
+          }
+
+          &.current-menu-item > a,
+          &.current-menu-ancestor > a {
+            color: $primary;
+            border-bottom: 2px solid $primary;
+          }
+
+          @include tablet {
+            padding: 2rem 0.5rem;
+            display: flex;
+            align-items: center;
+          }
+
+          &.menu-item-has-children {
+            @include tablet {
+              position: relative;
+
+              &.right-on-tablet {
+                .sub-menu {
+                  right: 0;
+                }
+              }
+
+              .sub-menu {
+                display: none;
+                position: absolute;
+                width: 16rem;
+                padding-bottom: 1rem;
+                top: 5rem;
+                list-style-type: none;
+                text-align: left;
+                background-color: $secondary;
+
+                a {
+                  color: $white;
+                }
+
+                .current-menu-item>a {
+                  color: $primary;
+                }
+              }
+
+              &:hover {
+                .sub-menu {
+                  display: block;
+                }
+              }
+            }
+
+            @include desktop {
+              &.right-on-tablet {
+                .sub-menu {
+                  right: unset;
+                }
+              }
+
+              .sub-menu {
+                top: 5rem;
+              }
+            }
+
+            .sub-menu {
+              list-style-type: none;
+              padding-top: 1rem;
+
+              li {
+                padding: 1rem;
+                position: relative;
+
+                a {
+                  &::before {
+                    font-family: 'Font Awesome 5 Free';
+                    content: '\f101';
+                    font-weight: 900;
+                    position: absolute;
+                    left: -0.5em;
+                    transition: left 250ms ease-in-out;
+                  }
+
+                  &:hover {
+                    &::before {
+                      font-family: 'Font Awesome 5 Free';
+                      content: '\f101';
+                      font-weight: 900;
+                      position: absolute;
+                      left: -0em;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search__wrapper {
+    position: relative;
+    flex-basis: 15%;
+    padding: 0 10px;
+    &::after {
+      font-family: 'Font Awesome 5 Free';
+      content: '\f002';
+      font-weight: 900;
+      right: 1.5rem;
+      position: absolute;
+      top: 25%;
+      pointer-events: none;
+    }
+
+    .search-form {
+      display: flex;
+      position: relative;
+
+      .search-field {
+        padding: 0.5rem;
+      }
+
+      .search-submit {
+        position: absolute;
+        right: 1.5rem;
+        padding: 0.5rem;
+        color: $transparent;
+        background: $transparent;
+        border: none;
+        width: 2rem;
+        cursor: pointer;
+      }
+    }
+  }
+}
